@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@home')->name('index');
+Route::get('/addnew', 'HomeController@addNew')->name('addnew');
+Route::post('/create', 'HomeController@create')->name('create');
+Route::get('/edit/{id}', 'HomeController@edit')->name('edit');
+Route::put('/update/{id}', 'HomeController@update')->name('update');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
